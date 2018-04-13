@@ -1,0 +1,14 @@
+language: elixir
+sudo: false
+elixir:
+  - '1.5.2'
+otp_release:
+  - '19.0'
+cache:
+  directories:
+    - _build
+    - deps
+script:
+  - wget http://www8.cao.go.jp/chosei/shukujitsu/syukujitsu_kyujitsu.csv
+  - iconv -f Shift_JIS -t UTF8 syukujitsu_kyujitsu.csv > data.csv
+  - mix test
