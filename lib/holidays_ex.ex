@@ -40,8 +40,23 @@ defmodule HolidaysEx do
   """
   def when?(name) do
     generate_map_data()
-    |> Enum.filter(fn {key, val} -> val == name end)
-    |> Enum.map(fn {key, val} -> key end)
+    |> Enum.filter(fn {_, val} -> val == name end)
+    |> Enum.map(fn {key, _} -> key end)
+    |> Enum.sort
+  end
+
+  @doc """
+  Returns a holiday's all date.
+
+  ## Examples
+
+      iex> HolidaysEx.dates
+      ["2017-01-01", "2017-01-02", "2017-01-09" ...]
+
+  """
+  def dates() do
+    generate_map_data()
+    |> Map.keys
     |> Enum.sort
   end
 
