@@ -24,3 +24,6 @@ deploy:
     echo -n $HEX_LOCAL_PASSWORD | mix hex.publish --no-confirm &&
     mix clean &&
     mix deps.clean --all
+branches:
+  except:
+  - develop
