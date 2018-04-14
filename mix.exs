@@ -9,7 +9,7 @@ defmodule HolidaysEx.MixProject do
   def project do
     [
       app: :holidays_ex,
-      version: "0.0.3",
+      version: "0.0.4",
       elixir: "~> 1.6",
       start_permanent: Mix.env() == :prod,
       deps: deps(),
