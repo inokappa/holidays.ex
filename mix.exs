@@ -9,7 +9,7 @@ defmodule HolidaysEx.MixProject do
   def project do
     [
       app: :holidays_ex,
-      version: "0.0.4",
+      version: "0.0.5",
       elixir: "~> 1.6",
       start_permanent: Mix.env() == :prod,
       deps: deps(),
@@ -36,7 +36,8 @@ defmodule HolidaysEx.MixProject do
     [
       {:csv, "~> 2.0.0"},
       {:poison, "~> 3.1"},
-      {:ex_doc, "~> 0.14", only: :dev}
+      {:ex_doc, "~> 0.14", only: :dev},
+      {:mock, "~> 0.3.0", only: :test}
     ]
   end
 end
