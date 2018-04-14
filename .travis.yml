@@ -18,4 +18,6 @@ script:
 deploy:
   provider: script
   script: >-
-    echo $HEX_LOCAL_PASSWORD | mix hex.publish --no-confirm
+    echo $HEX_LOCAL_PASSWORD | mix hex.publish --no-confirm &&
+    mix clean &&
+    mix deps.clean --all
