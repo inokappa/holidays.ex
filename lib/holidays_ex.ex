@@ -64,7 +64,7 @@ defmodule HolidaysEx do
   end
 
   defp generate_map_data() do
-    CSV.decode!(File.stream!("deps/holidays_ex/data.csv"), headers: false)
+    CSV.decode!(File.stream!(Path.join(:code.priv_dir(:holidays_ex), "data.csv")), headers: false)
     |> Stream.drop(1)
     |> Stream.map( fn( [ date, name ] ) -> %{ date => name } end )
     |> Enum.flat_map( fn m -> Map.new(m) end )

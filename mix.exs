@@ -19,7 +19,7 @@ defmodule HolidaysEx.MixProject do
         maintainers: ["Yohei Kawahara"],
         licenses: ["MIT"],
         links: %{"GitHub" => "https://github.com/inokappa/holidays.ex"},
-        files: ["lib", "test", "mix.exs", "README*", "data.csv"],
+        files: ["lib", "test", "mix.exs", "README*", "priv*"],
       ]
     ]
   end
