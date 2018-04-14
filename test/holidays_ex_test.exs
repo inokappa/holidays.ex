@@ -4,6 +4,7 @@ defmodule HolidaysExTest do
 
   setup_all do
     {:ok, days: ["2017-07-17", "2018-07-16", "2019-07-15"]}
+    {:ok, holiday: "元日"}
   end
 
   test "Get Umino-Hi's dates", state do
@@ -11,6 +12,6 @@ defmodule HolidaysExTest do
   end
 
   test "Get holiday's name by date" do
-    assert HolidaysEx.holiday?("2018-01-01") == "元日"
+    assert HolidaysEx.holiday?("2018-01-01") == state[:holiday]
   end
 end
