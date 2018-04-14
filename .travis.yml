@@ -8,7 +8,19 @@ cache:
   directories:
     - _build
     - deps
+before_install:
+  - mkdir -p ~/.hex/
+  - openssl aes-256-cbc -K $encrypted_212ad61caf9f_key -iv $encrypted_212ad61caf9f_iv -in hex.config.enc -out ~/.hex/hex.config -d
 script:
   - wget http://www8.cao.go.jp/chosei/shukujitsu/syukujitsu_kyujitsu.csv
   - iconv -f Shift_JIS -t UTF8 syukujitsu_kyujitsu.csv > data.csv
-  - mix test
+  - MIX_ENV=test mix test
+deploy:
+  provider: script
+  script: >-
+    mix deps.get &&
+    echo $HEX_LOCAL_PASSWORD | mix hex.publish --no-confirm &&
+    mix clean &&
+    mix deps.clean --all
+  on:
+   tags: true

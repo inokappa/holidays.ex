@@ -3,13 +3,13 @@ defmodule HolidaysEx.MixProject do
 
   @description """
     This library deals with Japanese holiday information.
-    内閣府が提供する祝日の [csv データ](http://www8.cao.go.jp/chosei/shukujitsu/syukujitsu_kyujitsu.csv)を利用して提供しています.
+    内閣府が提供する祝日の csv データ (http://www8.cao.go.jp/chosei/shukujitsu/syukujitsu_kyujitsu.csv) を利用しています.
   """
 
   def project do
     [
       app: :holidays_ex,
-      version: "0.0.1",
+      version: "0.0.2",
       elixir: "~> 1.6",
       start_permanent: Mix.env() == :prod,
       deps: deps(),
@@ -18,7 +18,8 @@ defmodule HolidaysEx.MixProject do
       package: [
         maintainers: ["Yohei Kawahara"],
         licenses: ["MIT"],
-        links: %{"GitHub" => "https://github.com/inokappa/holidays.ex"}
+        links: %{"GitHub" => "https://github.com/inokappa/holidays.ex"},
+        files: ["lib", "test", "mix.exs", "README*", "data.csv"],
       ]
     ]
   end
@@ -34,7 +35,8 @@ defmodule HolidaysEx.MixProject do
   defp deps do
     [
       {:csv, "~> 2.0.0"},
-      {:poison, "~> 3.1"}
+      {:poison, "~> 3.1"},
+      {:ex_doc, "~> 0.14", only: :dev}
     ]
   end
 end
