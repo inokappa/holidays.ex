@@ -21,11 +21,11 @@ defmodule HolidaysEx do
 
   ## Examples
 
-      iex> HolidaysEx.name?("2019-11-03")
+      iex> HolidaysEx.holiday?("2019-11-03")
       "文化の日"
 
   """
-  def name?(date) do
+  def holiday?(date) do
     generate_map_data() |> Map.fetch!(date)
   end
 
@@ -34,11 +34,11 @@ defmodule HolidaysEx do
 
   ## Examples
 
-      iex> HolidaysEx.date?("海の日")
+      iex> HolidaysEx.when?("海の日")
       ["2017-07-17", "2018-07-16", "2019-07-15"]
 
   """
-  def date?(name) do
+  def when?(name) do
     generate_map_data()
     |> Enum.filter(fn {key, val} -> val == name end)
     |> Enum.map(fn {key, val} -> key end)

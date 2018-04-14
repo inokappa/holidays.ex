@@ -7,10 +7,10 @@ defmodule HolidaysExTest do
   end
 
   test "Get Umino-Hi's dates", state do
-    assert HolidaysEx.date?("海の日") == state[:days]
+    assert HolidaysEx.when?("海の日") == state[:days]
   end
 
   test "Get holiday's name by date" do
-    assert HolidaysEx.name?("2018-01-01") == "元日"
+    assert HolidaysEx.holiday?("2018-01-01") == "元日"
   end
 end
