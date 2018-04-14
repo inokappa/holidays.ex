@@ -1,5 +1,8 @@
 # holidays.ex
 
+[![Build Status](https://travis-ci.org/inokappa/holidays.ex.svg?branch=master)](https://travis-ci.org/inokappa/holidays.ex)
+[![hex.pm version](https://img.shields.io/hexpm/v/holidays_ex.svg)](https://hex.pm/packages/holidays_ex)
+
 去年, 今年, 来年の祝日情報を返すライブラリです. 内閣府が提供する祝日の csv データ (http://www8.cao.go.jp/chosei/shukujitsu/syukujitsu_kyujitsu.csv) を利用しています.
 
 ## Install
