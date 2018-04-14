@@ -8,8 +8,10 @@ defmodule HolidaysExTest do
   import Mock
 
   setup_all do
-    {:ok, days: ["2017-07-17", "2018-07-16", "2019-07-15"],
-          holiday: "元日"
+    {:ok,
+      days: ["2017-07-17", "2018-07-16", "2019-07-15"],
+      sorted_days: ["2017-01-01", "2017-01-02", "2017-01-09"],
+      holiday: "元日"
     }
   end
 
@@ -22,8 +24,8 @@ defmodule HolidaysExTest do
 
   test "Return All Holidays(date only)", state do
     with_mock HolidaysEx,
-      [dates: fn() -> state[:days] end] do
-      assert HolidaysEx.dates() == state[:days]
+      [dates: fn() -> state[:sorted_days] end] do
+      assert HolidaysEx.dates() == state[:sorted_days]
     end
   end
 
