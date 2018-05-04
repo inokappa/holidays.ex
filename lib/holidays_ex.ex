@@ -17,16 +17,34 @@ defmodule HolidaysEx do
   end
 
   @doc """
-  Specifying a date returns a holiday's name.
+  Specifying a date returns holiday or not as bool.
 
   ## Examples
 
       iex> HolidaysEx.holiday?("2019-11-03")
-      "文化の日"
+      true
 
   """
   def holiday?(date) do
-    generate_map_data() |> Map.fetch!(date)
+    name = generate_map_data() |> Map.get(date)
+    if name == nil do
+      false
+    else
+      true
+    end
+  end
+
+  @doc """
+  Specifying a date returns a holiday's name.
+
+  ## Examples
+
+      iex> HolidaysEx.holiday_name("2019-11-03")
+      "文化の日"
+
+  """
+  def holiday_name(date) do
+    generate_map_data() |> Map.get(date)
   end
 
   @doc """
