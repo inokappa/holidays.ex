@@ -11,7 +11,8 @@ defmodule HolidaysExTest do
     {:ok,
       days: ["2017-07-17", "2018-07-16", "2019-07-15"],
       sorted_days: ["2017-01-01", "2017-01-02", "2017-01-09"],
-      holiday: "元日"
+      holiday: true,
+      holiday_name: "元日"
     }
   end
 
@@ -29,10 +30,18 @@ defmodule HolidaysExTest do
     end
   end
 
-  test "Return holiday's name by date", state do
+  test "Return holiday or not as bool by date", state do
     with_mock HolidaysEx,
       [holiday?: fn("2018-01-01") -> state[:holiday] end] do
       assert HolidaysEx.holiday?("2018-01-01") == state[:holiday]
     end
   end
+
+  test "Return holiday's name by date", state do
+    with_mock HolidaysEx,
+      [holiday_name: fn("2018-01-01") -> state[:holiday_name] end] do
+      assert HolidaysEx.holiday_name("2018-01-01") == state[:holiday_name]
+    end
+  end
+
 end
