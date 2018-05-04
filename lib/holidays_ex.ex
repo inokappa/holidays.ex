@@ -24,6 +24,9 @@ defmodule HolidaysEx do
       iex> HolidaysEx.holiday?("2019-11-03")
       true
 
+      iex> HolidaysEx.holiday?("2019-11-08")
+      false
+
   """
   def holiday?(date) do
     name = generate_map_data() |> Map.get(date)
